@@ -96,14 +96,15 @@ Follow these steps to run the project locally:
 1. Clone the repository
    bash:
    git clone https://github.com/1DS22CS065Chaithanya/BT_Project.git
+   
    cd product-dashboard
 
-2. Install dependencies:
+3. Install dependencies:
    npm install
 
-3. Start development server:
+4. Start development server:
    npm run dev
 
-4. Run Storybook:
+5. Run Storybook:
    npm run storybook
 
