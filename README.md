@@ -1,8 +1,8 @@
-# React + TypeScript + Vite
+<!--# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Currently, two official plugins are availab
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
@@ -66,4 +66,44 @@ export default tseslint.config([
     },
   },
 ])
-```
+```-->
+-> 📊 Product Dashboard
+
+A Product Dashboard built with React,TypeScript,Vite, and Tailwind CSS.  
+This project also uses Storybook for isolated UI component development.
+
+->Features
+
+- ⚡ Vite for lightning-fast builds and HMR.
+- 🎨 Tailwind CSS for modern, responsive UI styling.
+- 🧩 Storybook for developing and testing components in isolation.
+- 📂 Clean and modular folder structure.
+
+-> Tech Stack
+
+- React - UI library
+- TypeScript - Type-safe development
+- Vite - Build tool
+- Tailwind CSS - Styling framework
+- Storybook - UI component playground
+- Vitest - Unit testing
+- ESLint - Code linting and style guide enforcement
+
+->  ⚙ Installation
+
+Follow these steps to run the project locally:
+
+1. Clone the repository
+   bash
+   git clone https://github.com/1DS22CS065Chaithanya/BT_Project.git
+   cd product-dashboard
+
+2. Install dependencies
+   npm install
+
+3. Start development server
+   npm run dev
+
+4. Run Storybook
+   npm run storybook
+
