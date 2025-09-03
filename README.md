@@ -94,16 +94,16 @@ This project also uses Storybook for isolated UI component development.
 Follow these steps to run the project locally:
 
 1. Clone the repository
-   bash
+   bash:
    git clone https://github.com/1DS22CS065Chaithanya/BT_Project.git
    cd product-dashboard
 
-2. Install dependencies
+2. Install dependencies:
    npm install
 
-3. Start development server
+3. Start development server:
    npm run dev
 
-4. Run Storybook
+4. Run Storybook:
    npm run storybook
 
