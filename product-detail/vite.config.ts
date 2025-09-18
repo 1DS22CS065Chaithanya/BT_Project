@@ -11,7 +11,7 @@ export default defineConfig({
       exposes: {
         "./ProductDetail": "./src/ProductDetail.tsx", // 👈 expose ProductDetail
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom","react-router-dom"],
     }),
   ],
   build: {

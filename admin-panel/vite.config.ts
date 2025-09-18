@@ -54,7 +54,7 @@ export default defineConfig({
       exposes: {
         "./AdminPanel": "./src/AdminPanel.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom","react-router-dom"],
     }),
   ],
   server: { port: 3003 },

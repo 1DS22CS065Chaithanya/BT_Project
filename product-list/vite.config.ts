@@ -11,7 +11,7 @@ export default defineConfig({
       exposes: {
         "./ProductList": "./src/ProductList.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom","react-router-dom"],
     }),
 //     federation({
 //   name: "productList",

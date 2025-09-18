@@ -13,7 +13,7 @@ export default defineConfig({
         productDetail: "http://localhost:3002/assets/remoteEntry.js",
         adminPanel: "http://localhost:3003/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom","react-router-dom"],
     }),
   ],
   build: {
