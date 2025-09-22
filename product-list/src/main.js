@@ -2,7 +2,6 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ProductList from "./ProductList";
-// When running standalone, ProductList expects props; we provide a small demo dataset and a handler.
 const demoProducts = [
     {
         id: "1",

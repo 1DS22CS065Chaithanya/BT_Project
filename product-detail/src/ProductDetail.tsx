@@ -1,5 +1,5 @@
 // import React from "react";
-
+import { Button } from "ui-library";
 type Product = {
   id: string;
   name: string;
@@ -56,11 +56,12 @@ export default function ProductDetail({ product }: Props) {
           </div>
 
           <div style={{ marginTop: 20 }}>
-            <button style={{
+            {/* <button style={{
               background: "#0066ff", color: "#fff", padding: "10px 16px", borderRadius: 8, border: "none", cursor: "pointer"
             }}>
               Add to Cart
-            </button>
+            </button> */}
+            <Button className="custom-button" label="View"/>
           </div>
         </div>
       </div>

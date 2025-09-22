@@ -106,7 +106,6 @@ const ProductDetail = React.lazy(() => import("productDetail/ProductDetail"));
 const AdminPanel = React.lazy(() => import("adminPanel/AdminPanel"));
 
 export default function App() {
-  // Initial products live here in the container (single source of truth).
   const [products, setProducts] = React.useState<Product[]>([
     {
       id: "1",
@@ -173,7 +172,7 @@ export default function App() {
               <Route path="/products" element={<ProductList products={products} onSelectProduct={onSelectProduct} />} />
               <Route path="/detail" element={<ProductDetail product={selectedProduct} />} />
               <Route path="/admin" element={<AdminPanel products={products} onAddProduct={onAddProduct} onEditProduct={onEditProduct} />} />
-              <Route path="*" element={<h2>Welcome! Please select a module from the navbar.</h2>} />
+              <Route path="*" element={<h2>Welcome to Product Dashboard.</h2>} />
             </Routes>
           </Suspense>
         </main>

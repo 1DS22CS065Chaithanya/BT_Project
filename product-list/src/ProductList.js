@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import ProductCard from "./components/ProductCard";
+import { ProductCard } from "ui-library";
 export default function ProductList({ products = [], onSelectProduct }) {
     return (_jsxs("div", { style: { padding: 12 }, children: [_jsx("h2", { style: { marginTop: 0 }, children: "\uD83D\uDCE6 Product List" }), _jsx("div", { style: {
                     display: "flex",

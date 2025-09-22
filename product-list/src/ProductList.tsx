@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "./components/ProductCard";
+import { ProductCard } from "ui-library";
 
 type Product = {
   id: string;
@@ -12,8 +12,8 @@ type Product = {
 };
 
 type Props = {
-  products: Product[];                     // provided by container
-  onSelectProduct: (id: string) => void;   // callback to container
+  products: Product[];                     
+  onSelectProduct: (id: string) => void;   
 };
 
 export default function ProductList({ products = [], onSelectProduct }: Props) {

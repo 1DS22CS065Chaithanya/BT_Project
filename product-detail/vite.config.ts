@@ -9,16 +9,16 @@ export default defineConfig({
       name: "productDetail",
       filename: "remoteEntry.js",
       exposes: {
-        "./ProductDetail": "./src/ProductDetail.tsx", // 👈 expose ProductDetail
+        "./ProductDetail": "./src/ProductDetail.tsx", 
       },
-      shared: ["react", "react-dom","react-router-dom"],
+      shared: ["react", "react-dom","react-router-dom","ui-library"],
     }),
   ],
   build: {
     target: "esnext",
   },
   server: {
-    port: 3002, // 👈 runs on port 3002
+    port: 3002, 
   },
   preview: { port: 3002 }
 });
