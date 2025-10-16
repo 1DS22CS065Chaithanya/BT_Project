@@ -14,7 +14,7 @@ const demo = {
 export default function App() {
   return (
     <div style={{ padding: 20 }}>
-      <h1>Product Detail App</h1>
+      <h1 className="text-black dark:text-white">Product Detail App</h1>
       <ProductDetail product={demo} />
     </div>
   );

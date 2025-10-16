@@ -1,5 +1,5 @@
 // import React from "react";
-import { Button } from "ui-library";
+// import { Button } from "ui-library";
 type Product = {
   id: string;
   name: string;
@@ -18,8 +18,8 @@ export default function ProductDetail({ product }: Props) {
   if (!product) {
     return (
       <div style={{ padding: 12 }}>
-        <h2>🔍 Product Detail</h2>
-        <p style={{ color: "#666" }}>Select a product to view details.</p>
+        <h2 className="text-black dark:text-white">🔍 Product Detail</h2>
+        <p className="text-black dark:text-white">Select a product to view details.</p>
       </div>
     );
   }
@@ -30,7 +30,7 @@ export default function ProductDetail({ product }: Props) {
 
   return (
     <div style={{ padding: 12, maxWidth: 900 }}>
-      <h2>🔍 Product Detail</h2>
+      <h2 className="text-black dark:text-white"> Product Detail</h2>
       <div style={{ display: "flex", gap: 20, marginTop: 12 }}>
         <img
           src={product.image}
@@ -61,7 +61,7 @@ export default function ProductDetail({ product }: Props) {
             }}>
               Add to Cart
             </button> */}
-            <Button className="custom-button" label="View"/>
+            {/* <Button className="custom-button" label="View"/> */}
           </div>
         </div>
       </div>

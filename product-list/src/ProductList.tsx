@@ -19,7 +19,7 @@ type Props = {
 export default function ProductList({ products = [], onSelectProduct }: Props) {
   return (
     <div style={{ padding: 12 }}>
-      <h2 style={{ marginTop: 0 }}>📦 Product List</h2>
+      <h2 style={{ marginTop: 0 }} className="text-black dark:text-white">Product List</h2>
       <div style={{
         display: "flex",
         flexWrap: "wrap",
