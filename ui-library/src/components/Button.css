@@ -1,24 +1,42 @@
 .custom-button {
-  background-color: #0066ff; 
-  color: white;
+  background-color: #2563eb; /* solid blue */
+  color: #ffffff; /* white text */
   border: none;
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
-.custom-button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+/* Remove hover or transition effects completely */
+.custom-button:hover,
+.custom-button:active,
+.custom-button:focus {
+  background-color: #2563eb;
+  color: #ffffff;
+  outline: none;
+  border: none;
 }
 
-.custom-button:active {
-  transform: translateY(0);
-}
-
+/* Disabled state */
 .custom-button:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* 🌙 Dark mode — same exact style */
+.dark .custom-button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+}
+
+.dark .custom-button:hover,
+.dark .custom-button:active,
+.dark .custom-button:focus {
+  background-color: #2563eb;
+  color: #ffffff;
+  outline: none;
+  border: none;
 }
