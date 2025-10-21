@@ -8,9 +8,6 @@ export default defineConfig({
     federation({
       name: "productDetail",
       filename: "remoteEntry.js",
-      exposes: {
-        "./ProductDetail": "./src/ProductDetail.tsx", 
-      },
       shared: ["react", "react-dom","react-router-dom","ui-library"],
     }),
   ],

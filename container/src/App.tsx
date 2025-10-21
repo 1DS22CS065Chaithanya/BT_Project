@@ -72,7 +72,7 @@ export default function App() {
           <h2 style={{ margin: 0 }}>🛍️ Microfrontend Dashboard</h2>
           <nav style={{ display: "flex", gap: "20px" }}>
             <Link to="/products" className="text-white no-underline">Product List</Link>
-            <Link to="/detail" className="text-white no-underline">Product Detail</Link>
+            {/* <Link to="/detail" className="text-white no-underline">Product Detail</Link> */}
             <Link to="/admin" className="text-white no-underline">Admin Panel</Link>
             <ThemeToggle /> 
           </nav>
