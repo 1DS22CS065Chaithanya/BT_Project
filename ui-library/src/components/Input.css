@@ -1,27 +1,4 @@
-/* .input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.input-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-
-.input-field {
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.input-field:focus {
-  border-color: #0066ff;
-} */
 .input-wrapper {
   display: flex;
   flex-direction: column;
@@ -49,7 +26,7 @@
   border-color: #2563eb;
 }
 
-/* 🌙 DARK MODE */
+
 .dark .input-label {
   color: #f1f5f9;
 }

@@ -1,6 +1,6 @@
 .custom-button {
-  background-color: #2563eb; /* solid blue */
-  color: #ffffff; /* white text */
+  background-color: #2563eb; 
+  color: #ffffff; 
   border: none;
   padding: 8px 14px;
   border-radius: 8px;
@@ -9,7 +9,7 @@
   cursor: pointer;
 }
 
-/* Remove hover or transition effects completely */
+
 .custom-button:hover,
 .custom-button:active,
 .custom-button:focus {
@@ -19,13 +19,13 @@
   border: none;
 }
 
-/* Disabled state */
+
 .custom-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* 🌙 Dark mode — same exact style */
+
 .dark .custom-button {
   background-color: #2563eb;
   color: #ffffff;

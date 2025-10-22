@@ -7,7 +7,7 @@ import uuid
 DB_PATH = "database.db"
 
 app = Flask(__name__)
-CORS(app)  # allow all origins; in production restrict origins
+CORS(app)  
 
 def get_db():
     db = getattr(g, "_database", None)

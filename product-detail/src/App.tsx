@@ -1,24 +1,4 @@
-// // import React from "react";
-// import ProductDetail from "./ProductDetail";
 
-// const demo = {
-//   id: "1",
-//   name: "Wireless Headphones",
-//   price: 120,
-//   description: "High quality sound with noise cancellation.",
-//   image: "http://localhost:3001/images/Headphones.jpg",
-//   inStock: true,
-//   discount: 0,
-// };
-
-// export default function App() {
-//   return (
-//     <div style={{ padding: 20 }}>
-//       <h1 className="text-black dark:text-white">Product Detail App</h1>
-//       <ProductDetail product={demo} />
-//     </div>
-//   );
-// }
 import { useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
 
@@ -36,15 +16,15 @@ export default function App() {
   const [product, setProduct] = useState<Product | null>(null);
   function getThemeFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  const theme = params.get("theme"); // "light" or "dark"
-  return theme || "light"; // default to "light" if not present
+  const theme = params.get("theme"); 
+  return theme || "light"; 
 }
 
-// Example usage
+
 const currentTheme = getThemeFromUrl();
 console.log("Current theme from URL:", currentTheme);
 
-// Optional: apply it to <html>
+
 if (currentTheme === "dark") {
   document.documentElement.classList.add("dark");
 } else {

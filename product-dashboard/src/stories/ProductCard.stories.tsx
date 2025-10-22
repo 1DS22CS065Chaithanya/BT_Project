@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ProductCard from "../components/ProductCard";
 
-// ✅ Default export with metadata
+// Default export with metadata
 const meta: Meta<typeof ProductCard> = {
   title: "Components/ProductCard",
   component: ProductCard,
@@ -11,7 +11,7 @@ export default meta;  // <-- this is the required default export
 
 type Story = StoryObj<typeof ProductCard>;
 
-// ✅ Define stories
+// Define stories
 export const Default: Story = {
   args: {
     name: "Wireless Headphones",
