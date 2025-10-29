@@ -1,4 +1,3 @@
-import "./Card.css";
 type Props = {
     name: string;
     price: number;
