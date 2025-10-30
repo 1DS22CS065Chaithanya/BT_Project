@@ -20,11 +20,11 @@ export default defineConfig({
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
-  resolve: {
-    alias: {
-      "ui-library": path.resolve(__dirname, "../ui-library/src"),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     "ui-library": path.resolve(__dirname, "../ui-library/dist/ui-library.es.js"),
+  //   },
+  // },
   server: {
     port: 3001,
     fs: {

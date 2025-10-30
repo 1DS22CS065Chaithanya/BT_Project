@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "ui-library/dist/ui-library.css";
+// import "ui-library/dist/ui-library.css";
+import "ui-library/dist/index.css";
 import './index.css'; // Tailwind CSS
 const params = new URLSearchParams(window.location.search);
 const theme = params.get("theme");

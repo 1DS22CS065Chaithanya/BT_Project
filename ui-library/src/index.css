@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 🎨 Define your theme variables */
+:root {
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --color-primary: #4F46E5;
+  --color-accent: #10B981;
+}
+
+/* 🌙 Optional: dark theme (if you already use theme toggle) */
+.dark {
+  --color-primary: #818CF8;
+  --color-accent: #34D399;
+  --bg-color: #0f172a;
+  --text-color: #f9fafb;
+}
+
+/* 🧠 Base styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color, #ffffff);
+  color: var(--text-color, #1f2937);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* 🏷️ Heading styles */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+/* ✨ Accent text */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* ⚡ Smooth fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.component-fade {
+  animation: fadeIn 0.4s ease-out;
+}

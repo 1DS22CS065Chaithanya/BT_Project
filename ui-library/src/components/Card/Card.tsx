@@ -57,7 +57,7 @@
 //   );
 // }
 import React from "react";
-import Button from "./Button";
+import Button from "../Button/Button";
 
 type Props = {
   name: string;
