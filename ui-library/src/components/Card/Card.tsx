@@ -1,61 +1,4 @@
 
-// import React from "react";
-// import "./Card.css";
-// import Button from "./Button";
-
-// type Props = {
-//   name: string;
-//   price: number;
-//   description?: string;
-//   image: string;
-//   inStock?: boolean;
-//   discount?: number;
-//   onClick?: () => void;
-// };
-
-// export default function ProductCard({
-//   name,
-//   price,
-//   description,
-//   image,
-//   inStock = true,
-//   discount,
-//   onClick,
-// }: Props) {
-//   const finalPrice = discount ? price - (price * discount) / 100 : price;
-
-//   return (
-//     <div className="product-card" role="button" onClick={onClick}>
-//       <div className="product-image-wrap">
-//         <img src={image} alt={name} className="product-image" />
-//       </div>
-//       <div className="product-body">
-//         <h3 className="product-name">{name}</h3>
-//         <p className="product-desc">{description}</p>
-//         <div className="product-footer">
-//           {!inStock ? (
-//             <span className="out-of-stock">Out of stock</span>
-//           ) : discount ? (
-//             <div className="price">
-//               <span className="old-price">${price.toFixed(2)}</span>
-//               <span className="discounted">${finalPrice.toFixed(2)}</span>
-//             </div>
-//           ) : (
-//             <div className="price">${price.toFixed(2)}</div>
-//           )}
-
-//           <Button
-//             label="View"
-//             onClick={(e) => {
-//               e.stopPropagation();
-//               onClick?.();
-//             }}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 import React from "react";
 import Button from "../Button/Button";
 
@@ -80,6 +23,14 @@ export default function ProductCard({
 }: Props) {
   const finalPrice = discount ? price - (price * discount) / 100 : price;
 
+  //  This function ensures stopPropagation is called in both test & real DOM
+  const handleButtonClick = (event?: React.MouseEvent) => {
+    if (event && typeof event.stopPropagation === "function") {
+      event.stopPropagation();
+    }
+    onClick?.();
+  };
+
   return (
     <div
       className="w-64 rounded-xl overflow-hidden bg-white shadow-md cursor-pointer flex flex-col transition-transform duration-150 ease-in hover:-translate-y-1 hover:shadow-lg dark:bg-slate-800"
@@ -102,7 +53,6 @@ export default function ProductCard({
         </p>
 
         <div className="flex justify-between items-center gap-2">
-          {/* Price Section */}
           {!inStock ? (
             <span className="font-semibold text-gray-400 dark:text-slate-400">
               Out of stock
@@ -122,14 +72,8 @@ export default function ProductCard({
             </div>
           )}
 
-          {/* View Button */}
-          <Button
-            label="View"
-            onClick={(e) => {
-              e.stopPropagation();
-              onClick?.();
-            }}
-          />
+          {/*  View Button */}
+          <Button label="View" onClick={handleButtonClick} />
         </div>
       </div>
     </div>

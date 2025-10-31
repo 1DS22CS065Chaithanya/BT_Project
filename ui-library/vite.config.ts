@@ -1,49 +1,3 @@
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-// import path from "path";
-
-// export default defineConfig({
-//   plugins: [react()],
-//   build: {
-//     lib: {
-//       entry: path.resolve(__dirname, "src/index.ts"),
-//       name: "ui-library",
-//       fileName: (format) => `ui-library.${format}.js`,
-//     },
-//     rollupOptions: {
-//       external: ["react", "react-dom"], 
-//       output: {
-//         globals: {
-//           react: "React",
-//           "react-dom": "ReactDOM",
-//         },
-//       },
-//     },
-//   },
-// });
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-// import path from "path";
-
-// export default defineConfig({
-//   plugins: [react()],
-//   build: {
-//     lib: {
-//       entry: path.resolve(__dirname, "src/index.ts"),
-//       name: "ui-library",
-//       fileName: (format) => `ui-library.${format}.js`
-//     },
-//     rollupOptions: {
-//       external: ["react", "react-dom"],
-//       output: {
-//         globals: {
-//           react: "React",
-//           "react-dom": "ReactDOM"
-//         }
-//       }
-//     }
-//   }
-// });
 /// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -86,7 +40,37 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./src/setupTests.ts",
     css: true,
+     include: ["src/**/*.test.{ts,tsx}"],
+     exclude: ["**/*.stories.tsx"], 
+      setupFiles: "./src/setupTests.ts",
   },
 });
+// import { defineConfig } from "vitest/config";
+// import react from "@vitejs/plugin-react";
+// import path from "path";
+
+// export default defineConfig({
+//   plugins: [react()],
+//   test: {
+//     globals: true,
+//     environment: "jsdom",
+//     setupFiles: "./src/setupTests.ts",
+
+//     // ✅ Only run .test.tsx or .test.ts
+//     include: ["src/**/*.test.{ts,tsx}"],
+
+//     // 🚫 Ignore all Storybook files
+//     exclude: [
+//       "node_modules",
+//       "dist",
+//       "**/*.stories.*",
+//       ".storybook",
+//     ],
+//   },
+//   resolve: {
+//     alias: {
+//       "@": path.resolve(__dirname, "src"),
+//     },
+//   },
+// });

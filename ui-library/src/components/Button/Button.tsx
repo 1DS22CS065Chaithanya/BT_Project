@@ -1,33 +1,4 @@
 
-// import React from "react";
-// import "./Button.css";
-
-// type ButtonProps = {
-//   label: string;
-//   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-//   disabled?: boolean;
-//   type?: "button" | "submit" | "reset";
-//   className?: string;
-// };
-
-// export default function Button({
-//   label,
-//   onClick,
-//   disabled = false,
-//   type = "button",
-//   className = "",
-// }: ButtonProps) {
-//   return (
-//     <button
-//       className={`custom-button ${className}`}
-//       onClick={onClick}
-//       disabled={disabled}
-//       type={type}
-//     >
-//       {label}
-//     </button>
-//   );
-// }
 import React from "react";
 
 type ButtonProps = {

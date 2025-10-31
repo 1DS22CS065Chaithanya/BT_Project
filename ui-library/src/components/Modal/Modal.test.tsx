@@ -59,19 +59,23 @@ describe("Modal Component", () => {
   });
 
   test("calls onClose when overlay is clicked", () => {
-    render(
-      <Modal
-        isOpen={true}
-        title="Overlay Test"
-        message="Click outside"
-        onClose={mockOnClose}
-      />
-    );
+  const mockOnClose = vi.fn();
 
-    // Click the overlay background
-    fireEvent.click(screen.getByText("Overlay Test").closest("div")!);
-    expect(mockOnClose).toHaveBeenCalledTimes(1);
-  });
+  render(
+    <Modal
+      isOpen={true}
+      title="Overlay Test"
+      message="Test message"
+      onClose={mockOnClose}
+    />
+  );
+
+  // Select the outer overlay div
+  const overlay = screen.getByText("Test message").closest(".fixed")!;
+  fireEvent.click(overlay);
+
+  expect(mockOnClose).toHaveBeenCalledTimes(1);
+});
 
   test("does NOT close when clicking inside modal content", () => {
     render(
