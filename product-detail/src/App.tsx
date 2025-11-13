@@ -53,7 +53,7 @@ if (currentTheme === "dark") {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-background dark:bg-black">
       {/* <h1 className="text-black dark:text-white">Product Detail App</h1> */}
       <ProductDetail product={product} />
     </div>

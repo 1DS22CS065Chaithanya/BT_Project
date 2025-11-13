@@ -18,11 +18,11 @@ export default function Modal({ isOpen, title, message, onClose }: ModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl shadow-[0_6px_18px_rgba(0,0,0,0.08)] w-[360px] max-w-[90%] p-6"
+        className="bg-background rounded-xl shadow-[0_6px_18px_rgba(0,0,0,0.08)] w-[360px] max-w-[90%] p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-[18px] font-semibold mb-3">{title}</h2>
-        <p className="text-[14px] text-gray-700 mb-5">{message}</p>
+        <p className="text-[14px] text-textSecondary mb-5">{message}</p>
 
         <div className="flex justify-end">
           <Button label="OK" onClick={onClose} />

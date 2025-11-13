@@ -17,8 +17,8 @@ export default function ProductDetail({ product }: Props) {
   if (!product) {
     return (
       <div className="p-3">
-        <h2 className="text-black dark:text-white">🔍 Product Detail</h2>
-        <p className="text-black dark:text-white">Select a product to view details.</p>
+        <h2 className="text-black dark:text-background">🔍 Product Detail</h2>
+        <p className="text-black dark:text-background">Select a product to view details.</p>
       </div>
     );
   }
@@ -28,8 +28,8 @@ export default function ProductDetail({ product }: Props) {
     : product.price.toFixed(2);
 
   return (
-    <div className="p-3 max-w-2xl bg-white dark:bg-gray-900 rounded-md">
-      <h2 className="text-black dark:text-white">Product Detail</h2>
+    <div className="p-3 max-w-2xl bg-background dark:bg-black rounded-md">
+      <h2 className="text-black dark:text-background">Product Detail</h2>
       <div className="flex gap-5 mt-3">
         <img
           src={product.image}
@@ -37,19 +37,19 @@ export default function ProductDetail({ product }: Props) {
           className="w-80 h-80 object-cover rounded"
         />
         <div className="flex-1">
-          <h3 className="text-black dark:text-white mt-0">{product.name}</h3>
-          <p className="text-gray-700 dark:text-gray-300">{product.description}</p>
+          <h3 className="text-black dark:text-background mt-0">{product.name}</h3>
+          <p className="text-textSecondary dark:text-background">{product.description}</p>
 
           <div className="mt-4 flex gap-3 items-center">
-            <div className="text-lg font-bold text-black dark:text-white">
+            <div className="text-lg font-bold text-black dark:text-background">
               ${finalPrice}
               {product.discount ? (
-                <span className="ml-2 text-gray-500 dark:text-gray-400 line-through text-sm">
+                <span className="ml-2 text-textSecondary dark:text-textSecondary line-through text-sm">
                   ${product.price.toFixed(2)}
                 </span>
               ) : null}
             </div>
-            <div className={product.inStock ? "text-green-600" : "text-red-600"}>
+            <div className={product.inStock ? "text-success" : "text-error"}>
               {product.inStock ? "In stock" : "Out of stock"}
             </div>
           </div>

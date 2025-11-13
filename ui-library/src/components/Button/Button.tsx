@@ -22,10 +22,10 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={`px-4 py-2 rounded-lg text-sm font-medium 
-        bg-blue-600 text-white 
-        hover:bg-blue-700 focus:outline-none active:bg-blue-800 
+        bg-primary text-white 
+        hover:bg-primaryHover focus:outline-none active:bg-primaryHover
         disabled:opacity-60 disabled:cursor-not-allowed 
-        dark:bg-blue-600 dark:hover:bg-blue-700 
+        dark:bg-primary dark:hover:bg-primaryHover
         ${className}`}
     >
       {label}

@@ -1,19 +1,15 @@
+// ui-library/tailwind-preset.js
+
 /** @type {import('tailwindcss').Config} */
-export default {
+const preset = {
   darkMode: "class",
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./stories/**/*.{js,ts,jsx,tsx}",
-    "./.storybook/**/*.{js,ts,jsx,tsx}",
-    "../ui-library/src/**/*.{js,ts,jsx,tsx}",
-  ],
   theme: {
     extend: {
       colors: {
         // 🎨 Brand Colors
         primary: "#0ea5a4",        // teal-500
         primaryHover: "#0d9488",   // teal-600
-        secondary: "#f59e0b",      // amber-500
+        secondary: "#f59e0b",      // amber-500s
         accent: "#ef4444",         // red-500
 
         // 🧱 Background / Surface
@@ -44,3 +40,5 @@ export default {
   },
   plugins: [],
 };
+
+export default preset;

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { ProductCard } from "ui-library";
+import { Card } from "ui-library";
 
 export type Product = {
   id: string;
@@ -46,7 +46,7 @@ console.log("Current theme is:", currentTheme);
 
   return (
     <div style={{ padding: 12 }}>
-      <h2 style={{ marginTop: 0 }} className="text-black dark:text-white">
+      <h2 style={{ marginTop: 0 }} className="text-black dark:text-background">
         Product List
       </h2>
       <div
@@ -57,7 +57,7 @@ console.log("Current theme is:", currentTheme);
         }}
       >
         {products.map((p) => (
-          <ProductCard
+          <Card
             key={p.id}
             name={p.name}
             price={p.price}

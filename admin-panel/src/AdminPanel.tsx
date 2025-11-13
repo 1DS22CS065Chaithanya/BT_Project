@@ -169,7 +169,7 @@ export default function AdminPanel() {
 
         {/* --- Product List --- */}
         <div style={{ flex: 1 }}>
-          <h3 className="text-black dark:text-white">Existing products</h3>
+          <h3 className="text-black dark:text-background">Existing products</h3>
           <ul style={{ paddingLeft: 16 }}>
             {products.map((p) => (
               <li key={p.id} style={{ marginBottom: 8 }}>

@@ -44,17 +44,17 @@ export default function ProductCard({
 
       {/* Body */}
       <div className="p-3 flex flex-col gap-2">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-slate-100">
+        <h3 className="text-base font-semibold text-black dark:text-onPrimary">
           {name}
         </h3>
 
-        <p className="text-sm text-gray-500 dark:text-slate-300 min-h-[36px]">
+        <p className="text-sm text-textSecondary dark:text-onPrimary min-h-[36px]">
           {description}
         </p>
 
         <div className="flex justify-between items-center gap-2">
           {!inStock ? (
-            <span className="font-semibold text-gray-400 dark:text-slate-400">
+            <span className="font-semibold text-textSecondary dark:text-slate-400">
               Out of stock
             </span>
           ) : discount ? (
@@ -62,12 +62,12 @@ export default function ProductCard({
               <span className="line-through text-red-500 mr-2">
                 ${price.toFixed(2)}
               </span>
-              <span className="text-green-600 dark:text-green-400">
+              <span className="text-success dark:text-success">
                 ${finalPrice.toFixed(2)}
               </span>
             </div>
           ) : (
-            <div className="font-semibold text-gray-800 dark:text-green-400">
+            <div className="font-semibold text-textPrimary dark:text-success">
               ${price.toFixed(2)}
             </div>
           )}

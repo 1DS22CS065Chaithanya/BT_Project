@@ -68,24 +68,24 @@ export default function App() {
       <div style={{ fontFamily: "system-ui,Segoe UI,Roboto,Helvetica,Arial", height: "100vh", display: "flex", flexDirection: "column" }}>
         
         {/* Navbar */}
-        <header style={{ background: "#2563eb", color: "white", padding: "12px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <header className="bg-primary text-background px-5 py-3 flex justify-between items-center">
           <h2 style={{ margin: 0 }}>🛍️ Microfrontend Dashboard</h2>
           <nav style={{ display: "flex", gap: "20px" }}>
-            <Link to="/products" className="text-white no-underline">Product List</Link>
+            <Link to="/products" className="text-background no-underline">Product List</Link>
             {/* <Link to="/detail" className="text-white no-underline">Product Detail</Link> */}
-            <Link to="/admin" className="text-white no-underline">Admin Panel</Link>
+            <Link to="/admin" className="text-background no-underline">Admin Panel</Link>
             <ThemeToggle /> 
           </nav>
         </header>
 
         {/* Main content */}
         <main className="flex-1 p-5 bg-gray-50 dark:bg-gray-900 text-black dark:text-white overflow-y-auto">
-          <Suspense fallback={<div className="text-black dark:text-white">Loading microfrontends...</div>}>
+          <Suspense fallback={<div className="text-black dark:text-background">Loading microfrontends...</div>}>
             <Routes>
               <Route path="/products" element={<ProductList products={products} onSelectProduct={onSelectProduct} />} />
               <Route path="/detail" element={<ProductDetail product={selectedProduct} />} />
               <Route path="/admin" element={<AdminPanel products={products} onAddProduct={onAddProduct} onEditProduct={onEditProduct} />} />
-              <Route path="*" element={<h2 className="text-black dark:text-white">Welcome to Product Dashboard.</h2>} />
+              <Route path="*" element={<h2 className="text-black dark:background">Welcome to Product Dashboard.</h2>} />
             </Routes>
           </Suspense>
         </main>

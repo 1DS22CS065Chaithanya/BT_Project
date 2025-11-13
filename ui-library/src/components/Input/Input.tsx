@@ -25,14 +25,14 @@ export default function Input({
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label className="text-sm font-medium text-gray-900 dark:text-slate-100">
+        <label className="text-sm font-medium text-textPrimary dark:text-onPrimary">
           {label}
         </label>
       )}
 
       {as === "select" ? (
         <select
-          className="px-3 py-2 border border-gray-300 rounded-md text-sm outline-none bg-white text-gray-900 transition-all duration-200 focus:border-blue-600 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600 dark:focus:border-blue-500"
+          className="px-3 py-2 border border-background rounded-md text-sm outline-none bg-background text-textPrimary transition-all duration-200 focus:border-primary dark:text-black dark:text-onPrimary dark:border-textSecondary dark:focus:border-primary"
           value={String(value)}
           onChange={onChange}
           required={required}
@@ -46,7 +46,7 @@ export default function Input({
       ) : (
         <input
         data-testid="input"
-          className="px-3 py-2 border border-gray-300 rounded-md text-sm outline-none bg-white text-gray-900 transition-all duration-200 focus:border-blue-600 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600 dark:focus:border-blue-500"
+          className="px-3 py-2 border border-background rounded-md text-sm outline-none bg-background text-black transition-all duration-200 focus:border-primary dark:bg-black dark:text-onPrimary dark:border-textSecondary dark:focus:border-primary"
           type={type}
           placeholder={placeholder}
           value={String(value)}
