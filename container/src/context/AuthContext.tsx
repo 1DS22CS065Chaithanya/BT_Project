@@ -1,0 +1,85 @@
+// src/context/AuthContext.tsx
+import type { ReactNode } from "react";
+import { createContext, useContext, useState, useEffect} from "react";
+import axios from "axios";
+
+type User = {
+  username: string;
+  email: string;
+};
+
+type AuthContextType = {
+  user: User | null;
+  token: string | null;
+  login: (token: string, user: User) => void;
+  logout: () => void;
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+interface VerifyResponse {
+  valid: boolean;
+  user?: {
+    user_id: string;
+    username: string;
+    email: string;
+  };
+}
+
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const [token, setToken] = useState<string | null>(() =>
+    localStorage.getItem("token")
+  );
+
+  const [user, setUser] = useState<User | null>(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  // Verify token on refresh
+  useEffect(() => {
+    async function verify() {
+      if (!token) return;
+
+      try {
+        const res = await axios.post<VerifyResponse>(
+          "http://127.0.0.1:3001/verify",
+          { token }
+        );
+
+        if (!res.data.valid) logout();
+      } catch {
+        logout();
+      }
+    }
+
+    verify();
+  }, []);
+
+  function login(token: string, user: User) {
+    setToken(token);
+    setUser(user);
+
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  function logout() {
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, token, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export function useAuth() {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used inside AuthProvider");
+  return ctx;
+}
