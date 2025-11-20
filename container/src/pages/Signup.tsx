@@ -27,18 +27,18 @@ export default function Signup() {
 
       <form onSubmit={handleSignup} className="space-y-4">
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full text-black"
           placeholder="Username"
           onChange={(e) => setForm({ ...form, username: e.target.value })}
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full text-black"
           placeholder="Email"
           type="email"
           onChange={(e) => setForm({ ...form, email: e.target.value })}
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full text-black"
           placeholder="Password"
           type="password"
           onChange={(e) => setForm({ ...form, password: e.target.value })}

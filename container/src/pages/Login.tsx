@@ -44,12 +44,12 @@ export default function Login() {
 
       <form onSubmit={handleLogin} className="space-y-4">
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full text-black"
           placeholder="Username"
           onChange={(e) => setForm({ ...form, username: e.target.value })}
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full text-black"
           type="password"
           placeholder="Password"
           onChange={(e) => setForm({ ...form, password: e.target.value })}

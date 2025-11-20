@@ -1,6 +1,6 @@
-// src/context/AuthContext.tsx
+
 import type { ReactNode } from "react";
-import { createContext, useContext, useState, useEffect} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 type User = {
@@ -20,26 +20,27 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 interface VerifyResponse {
   valid: boolean;
   user?: {
-    user_id: string;
     username: string;
     email: string;
   };
 }
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+
+  // Store only token in localStorage
   const [token, setToken] = useState<string | null>(() =>
     localStorage.getItem("token")
   );
 
-  const [user, setUser] = useState<User | null>(() => {
-    const saved = localStorage.getItem("user");
-    return saved ? JSON.parse(saved) : null;
-  });
+  // ❌ STOP reading user from localStorage
+  const [user, setUser] = useState<User | null>(null);
 
-  // Verify token on refresh
   useEffect(() => {
     async function verify() {
-      if (!token) return;
+      if (!token) {
+        setUser(null);
+        return;
+      }
 
       try {
         const res = await axios.post<VerifyResponse>(
@@ -47,28 +48,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           { token }
         );
 
-        if (!res.data.valid) logout();
+        if (res.data.valid && res.data.user) {
+          setUser({
+            username: res.data.user.username,
+            email: res.data.user.email,
+          });
+        } else {
+          logout();
+        }
       } catch {
         logout();
       }
     }
 
     verify();
-  }, []);
+  }, [token]);
 
   function login(token: string, user: User) {
     setToken(token);
     setUser(user);
-
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token); // only token is stored
   }
 
   function logout() {
     setToken(null);
     setUser(null);
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
   }
 
   return (
