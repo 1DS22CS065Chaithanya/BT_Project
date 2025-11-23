@@ -1,4 +1,4 @@
-# init_db.py
+
 import sqlite3
 
 def init_db(db_path="database.db", schema_file="schema.sql"):

@@ -7,7 +7,6 @@ export default function ProfileMenu() {
 
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close menu when clicking outside
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
@@ -23,20 +22,20 @@ export default function ProfileMenu() {
       {/* Avatar Circle */}
       <div
         onClick={() => setOpen((prev) => !prev)}
-        className="w-10 h-10 rounded-full bg-white text-primary flex justify-center items-center cursor-pointer font-bold"
+        className="w-10 h-10 rounded-full bg-background text-primary flex justify-center items-center cursor-pointer font-bold"
       >
         {user?.username?.charAt(0).toUpperCase()}
       </div>
 
       {/* Popup Menu */}
       {open && (
-        <div className="absolute right-0 mt-2 w-40 bg-white text-black shadow-md rounded-lg p-3 z-50">
+        <div className="absolute right-0 mt-2 w-40 bg-background text-black shadow-md rounded-lg p-3 z-50">
           <p className="font-semibold">{user?.username}</p>
-          <p className="text-sm text-gray-500 mb-3">{user?.email}</p>
+          <p className="text-sm text-textSecondary mb-3">{user?.email}</p>
 
           <button
             onClick={logout}
-            className="w-full bg-red-500 text-white py-1 rounded hover:bg-red-600"
+            className="w-full bg-error text-background py-1 rounded hover:bg-error"
           >
             Logout
           </button>

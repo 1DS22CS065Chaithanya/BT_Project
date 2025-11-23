@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.getItem("token")
   );
 
-  // ❌ STOP reading user from localStorage
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {

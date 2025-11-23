@@ -26,9 +26,6 @@ type Product = {
   discount?: number;
 };
 
-// -----------------------------------------------------
-// NAVBAR
-// -----------------------------------------------------
 function Navbar() {
   const { user } = useAuth();
 
@@ -71,9 +68,7 @@ function Navbar() {
   );
 }
 
-// -----------------------------------------------------
-// MAIN APP
-// -----------------------------------------------------
+
 export default function App() {
   const [products, setProducts] = React.useState<Product[]>([]);
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
@@ -97,7 +92,7 @@ export default function App() {
       <div className="h-screen flex flex-col">
         <Navbar />
 
-        <main className="flex-1 p-5 bg-gray-50 dark:bg-gray-900 text-black dark:text-white overflow-y-auto">
+        <main className="flex-1 p-5 bg-background dark:bg-black text-black dark:text-background overflow-y-auto">
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               {/* PUBLIC ROUTES */}
@@ -143,7 +138,7 @@ export default function App() {
               <Route
                 path="*"
                 element={
-                  <h2 className="text-black dark:text-white">
+                  <h2 className="text-black dark:text-background">
                     Welcome to Product Dashboard.
                   </h2>
                 }

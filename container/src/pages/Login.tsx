@@ -1,7 +1,12 @@
+
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+
+import { Button, Input } from "ui-library";
+
+
 
 interface LoginResponse {
   token: string;
@@ -37,30 +42,41 @@ export default function Login() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-8">
+    <div className="max-w-md mx-auto p-8 bg-background dark:bg-black rounded shadow">
       <h1 className="text-xl font-bold mb-4">Login</h1>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-error">{error}</p>}
 
       <form onSubmit={handleLogin} className="space-y-4">
-        <input
-          className="border p-2 w-full text-black"
-          placeholder="Username"
+
+        {/* Username Input */}
+        <Input
+          label="Username"
+          placeholder="Enter your username"
+          value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}
-        />
-        <input
-          className="border p-2 w-full text-black"
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          required
         />
 
-        <button className="bg-primary text-white px-4 py-2 rounded w-full">
-          Login
-        </button>
+        {/* Password Input */}
+        <Input
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          required
+        />
+
+        {/* Login Button from UI Library */}
+        <Button
+          label="Login"
+          type="submit"
+          className="w-full"
+        />
       </form>
 
-      <Link to="/signup" className="block mt-4 text-blue-500 underline">
+      <Link to="/signup" className="block mt-4 text-primary underline">
         Create an account
       </Link>
     </div>
