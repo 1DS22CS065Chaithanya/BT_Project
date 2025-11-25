@@ -1,7 +1,4 @@
 
-DROP TABLE IF EXISTS users;
-
-DROP TABLE IF EXISTS products;
 
 CREATE TABLE users (
     id TEXT PRIMARY KEY,
