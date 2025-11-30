@@ -33,23 +33,42 @@ export default function Signup() {
     return "";
   }, [form.username, submitted]);
 
+  // const emailError = useMemo(() => {
+  //   if (!submitted) return "";
+  //   if (!form.email.trim()) return "Email is required";
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   if (!emailRegex.test(form.email.trim())) return "Enter a valid email address";
+  //   return "";
+  // }, [form.email, submitted]);
   const emailError = useMemo(() => {
-    if (!submitted) return "";
-    if (!form.email.trim()) return "Email is required";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email.trim())) return "Enter a valid email address";
-    return "";
-  }, [form.email, submitted]);
+  if (!submitted) return "";
+  if (!form.email.trim()) return "Email is required";
+
+  // Reject capital letters
+  if (/[A-Z]/.test(form.email)) {
+    return "Email must not contain capital letters";
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(form.email.trim())) {
+    return "Enter a valid email address";
+  }
+
+  return "";
+}, [form.email, submitted]);
+
 
   const passwordError = useMemo(() => {
-    if (!submitted) return "";
-    if (!form.password) return "Password is required";
-    if (form.password.length < 8) return "Password must be at least 8 characters";
-    if (!/[A-Z]/.test(form.password)) return "Password must contain at least one uppercase letter";
-    if (!/[a-z]/.test(form.password)) return "Password must contain at least one lowercase letter";
-    if (!/\d/.test(form.password)) return "Password must contain at least one digit";
-    return "";
-  }, [form.password, submitted]);
+  if (!submitted) return "";
+  if (!form.password) return "Password is required";
+  if (form.password.length < 8) return "Password must be at least 8 characters";
+  if (!/[A-Z]/.test(form.password)) return "Password must contain at least one uppercase letter";
+  if (!/[a-z]/.test(form.password)) return "Password must contain at least one lowercase letter";
+  if (!/\d/.test(form.password)) return "Password must contain at least one digit";
+  if (!/@/.test(form.password)) return "Password must contain '@'";
+  return "";
+}, [form.password, submitted]);
+
 
   const isFormValid =
     !usernameError &&

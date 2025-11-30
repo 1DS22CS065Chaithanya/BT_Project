@@ -37,6 +37,8 @@ def validate_password_strength(pw: str) -> str | None:
         return "Password must contain at least one lowercase letter"
     if not re.search(r"\d", pw):
         return "Password must contain at least one digit"
+    if not re.search(r"@", pw):
+        return "Password must contain '@'"
     return None
 
 
@@ -53,9 +55,13 @@ def signup():
 
     if len(username) < 3:
         return jsonify({"error": "Username must be at least 3 characters"}), 400
+    
+    if any(char.isupper() for char in email):
+        return jsonify({"error": "Email must not contain capital letters"}), 400
 
     if not EMAIL_RE.match(email):
         return jsonify({"error": "Invalid email address"}), 400
+         
 
     pw_err = validate_password_strength(password)
     if pw_err:
@@ -125,3 +131,4 @@ def verify():
         return jsonify({"valid": True, "user": decoded}), 200
     except Exception:
         return jsonify({"valid": False}), 401
+
