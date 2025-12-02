@@ -54,10 +54,10 @@ export default defineConfig({
       exposes: {
         "./AdminPanel": "./src/AdminPanel.tsx",
       },
-      shared: ["react", "react-dom","react-router-dom","ui-library"],
+      shared: ["react", "react-dom", "react-router-dom", "ui-library"],
     }),
   ],
   server: { port: 3003 },
   build: { target: "esnext" },
-  preview: { port: 3003 }
+  preview: { port: 3003 },
 });

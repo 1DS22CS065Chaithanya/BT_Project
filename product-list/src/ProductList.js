@@ -30,7 +30,7 @@ export default function ProductList() {
     const handleViewProduct = (id) => {
         window.location.href = `http://localhost:3002/detail/?id=${id}&theme=${currentTheme}`;
     };
-    return (_jsxs("div", { style: { padding: 12 }, children: [_jsx("h2", { className: "text-black dark:text-background", style: { marginTop: 0 }, children: "Product List" }), _jsx("input", { type: "text", placeholder: "Search products...", value: search, onChange: (e) => setSearch(e.target.value), className: "\r\n          border p-2 rounded w-full mb-4 \r\n          text-black \r\n          dark:bg-textSecondary dark:text-black dark:border-textSecondary\r\n        " }), _jsx("div", { style: {
+    return (_jsxs("div", { style: { padding: 12 }, children: [_jsx("h2", { className: "text-black dark:text-background", style: { marginTop: 0 }, children: "Product List" }), _jsx("input", { type: "text", placeholder: "Search products...", value: search, onChange: (e) => setSearch(e.target.value), className: "\n          border p-2 rounded w-full mb-4 \n          text-black \n          dark:bg-textSecondary dark:text-black dark:border-textSecondary\n        " }), _jsx("div", { style: {
                     display: "flex",
                     flexWrap: "wrap",
                     gap: 12,

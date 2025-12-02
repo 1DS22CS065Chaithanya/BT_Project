@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Modal, Button, Input } from "ui-library";
 import "./index.css";
@@ -57,7 +56,14 @@ export default function AdminPanel() {
         discount: String(editing.discount ?? 0),
       });
     } else {
-      setForm({ name: "", price: "", description: "", image: "", inStock: "true", discount: "0" });
+      setForm({
+        name: "",
+        price: "",
+        description: "",
+        image: "",
+        inStock: "true",
+        discount: "0",
+      });
     }
   }, [editing]);
 
@@ -96,17 +102,36 @@ export default function AdminPanel() {
     try {
       if (editing) {
         const updated = await updateProductAPI(p);
-        setModal({ isOpen: true, title: "Product Updated", message: `${updated.name} was updated.` });
+        setModal({
+          isOpen: true,
+          title: "Product Updated",
+          message: `${updated.name} was updated.`,
+        });
         setEditing(null);
       } else {
         const added = await addProductAPI(p);
-        setModal({ isOpen: true, title: "Product Added", message: `${added.name} was added.` });
+        setModal({
+          isOpen: true,
+          title: "Product Added",
+          message: `${added.name} was added.`,
+        });
       }
-      setForm({ name: "", price: "", description: "", image: "", inStock: "true", discount: "0" });
+      setForm({
+        name: "",
+        price: "",
+        description: "",
+        image: "",
+        inStock: "true",
+        discount: "0",
+      });
       fetchProducts(); // Refresh product list
     } catch (err) {
       console.error(err);
-      setModal({ isOpen: true, title: "Error", message: "Failed to save product." });
+      setModal({
+        isOpen: true,
+        title: "Error",
+        message: "Failed to save product.",
+      });
     }
   }
 
@@ -118,7 +143,12 @@ export default function AdminPanel() {
         {/* --- Form --- */}
         <form
           onSubmit={handleSubmit}
-          style={{ minWidth: 320, display: "flex", flexDirection: "column", gap: 12 }}
+          style={{
+            minWidth: 320,
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+          }}
         >
           <Input
             placeholder="Name"
@@ -162,8 +192,17 @@ export default function AdminPanel() {
           />
 
           <div style={{ display: "flex", gap: 8 }}>
-            <Button type="submit" label={editing ? "Save Changes" : "Add Product"} />
-            {editing && <Button type="button" label="Cancel" onClick={() => setEditing(null)} />}
+            <Button
+              type="submit"
+              label={editing ? "Save Changes" : "Add Product"}
+            />
+            {editing && (
+              <Button
+                type="button"
+                label="Cancel"
+                onClick={() => setEditing(null)}
+              />
+            )}
           </div>
         </form>
 
@@ -174,7 +213,11 @@ export default function AdminPanel() {
             {products.map((p) => (
               <li key={p.id} style={{ marginBottom: 8 }}>
                 <strong>{p.name}</strong> — ${p.price}{" "}
-                <Button type="button" label="Edit" onClick={() => setEditing(p)} />
+                <Button
+                  type="button"
+                  label="Edit"
+                  onClick={() => setEditing(p)}
+                />
               </li>
             ))}
           </ul>

@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ProductList from "./ProductList";
@@ -17,5 +15,5 @@ function Standalone() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Standalone />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import ProductDetail from "./ProductDetail";
 
@@ -15,28 +14,27 @@ type Product = {
 export default function App() {
   const [product, setProduct] = useState<Product | null>(null);
   function getThemeFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  const theme = params.get("theme"); 
-  return theme || "light"; 
-}
+    const params = new URLSearchParams(window.location.search);
+    const theme = params.get("theme");
+    return theme || "light";
+  }
 
+  const currentTheme = getThemeFromUrl();
+  console.log("Current theme from URL:", currentTheme);
 
-const currentTheme = getThemeFromUrl();
-console.log("Current theme from URL:", currentTheme);
-
-
-if (currentTheme === "dark") {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
-
+  if (currentTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
 
   useEffect(() => {
     // Read product ID from URL query parameter
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    if (!id) return;
+    if (!id) {
+      return;
+    }
 
     // Fetch product by ID from backend
     async function fetchProduct() {

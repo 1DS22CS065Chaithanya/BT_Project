@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Card } from "ui-library";
 
@@ -14,8 +13,8 @@ export type Product = {
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [search, setSearch] = useState(""); 
-  const [filtered, setFiltered] = useState<Product[]>([]); 
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState<Product[]>([]);
 
   // Fetch products from backend
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function ProductList() {
   //  Search filter logic
   useEffect(() => {
     const result = products.filter((p) =>
-      p.name.toLowerCase().includes(search.toLowerCase())
+      p.name.toLowerCase().includes(search.toLowerCase()),
     );
     setFiltered(result);
   }, [search, products]);
@@ -89,7 +88,9 @@ export default function ProductList() {
             />
           ))
         ) : (
-          <p className="text-black dark:text-background">No matching products found.</p>
+          <p className="text-black dark:text-background">
+            No matching products found.
+          </p>
         )}
       </div>
     </div>

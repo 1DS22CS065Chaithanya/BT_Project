@@ -1,8 +1,6 @@
-
 import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProfileMenu from "./components/ProfileMenu";
-
 
 import ThemeToggle from "./components/ThemeToggle";
 import { useAuth } from "./context/AuthContext";
@@ -68,13 +66,11 @@ function Navbar() {
   );
 }
 
-
 export default function App() {
   const [products, setProducts] = React.useState<Product[]>([]);
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
 
-  const selectedProduct =
-    products.find((p) => p.id === selectedId) ?? null;
+  const selectedProduct = products.find((p) => p.id === selectedId) ?? null;
 
   // Fetch products from backend
   useEffect(() => {
@@ -126,7 +122,7 @@ export default function App() {
                       }
                       onEditProduct={(p: Product) =>
                         setProducts((prev) =>
-                          prev.map((x) => (x.id === p.id ? p : x))
+                          prev.map((x) => (x.id === p.id ? p : x)),
                         )
                       }
                     />

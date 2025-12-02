@@ -1,12 +1,9 @@
-
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
 import { Button, Input } from "ui-library";
-
-
 
 interface LoginResponse {
   token: string;
@@ -27,7 +24,7 @@ export default function Login() {
     try {
       const res = await axios.post<LoginResponse>(
         "http://127.0.0.1:3001/login",
-        form
+        form,
       );
 
       login(res.data.token, {
@@ -48,7 +45,6 @@ export default function Login() {
       {error && <p className="text-error">{error}</p>}
 
       <form onSubmit={handleLogin} className="space-y-4">
-
         {/* Username Input */}
         <Input
           label="Username"
@@ -69,11 +65,7 @@ export default function Login() {
         />
 
         {/* Login Button from UI Library */}
-        <Button
-          label="Login"
-          type="submit"
-          className="w-full"
-        />
+        <Button label="Login" type="submit" className="w-full" />
       </form>
 
       <Link to="/signup" className="block mt-4 text-primary underline">

@@ -12,9 +12,12 @@ let isRefreshing = false;
 let failedQueue: any[] = [];
 
 const processQueue = (error: any, token: string | null = null) => {
-  failedQueue.forEach(prom => {
-    if (error) prom.reject(error);
-    else prom.resolve(token);
+  failedQueue.forEach((prom) => {
+    if (error) {
+      prom.reject(error);
+    } else {
+      prom.resolve(token);
+    }
   });
   failedQueue = [];
 };
@@ -32,7 +35,11 @@ api.interceptors.response.use(
   async (err) => {
     const originalRequest = err.config;
 
-    if (err.response && err.response.status === 401 && !originalRequest._retry) {
+    if (
+      err.response &&
+      err.response.status === 401 &&
+      !originalRequest._retry
+    ) {
       if (isRefreshing) {
         return new Promise(function (resolve, reject) {
           failedQueue.push({ resolve, reject });
@@ -46,7 +53,11 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        const resp = await axios.post(`${API_BASE}/auth/refresh`, {}, { withCredentials: true });
+        const resp = await axios.post(
+          `${API_BASE}/auth/refresh`,
+          {},
+          { withCredentials: true },
+        );
         // const newToken = resp.data.access_token;
         const newToken = (resp.data as { access_token: string }).access_token;
         localStorage.setItem("access_token", newToken);
@@ -62,7 +73,7 @@ api.interceptors.response.use(
     }
 
     throw err;
-  }
+  },
 );
 
 export default api;

@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">(
-    () => (localStorage.getItem("theme") as "light" | "dark") || "light"
+    () => (localStorage.getItem("theme") as "light" | "dark") || "light",
   );
 
   useEffect(() => {

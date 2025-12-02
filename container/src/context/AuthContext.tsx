@@ -1,4 +1,3 @@
-
 import type { ReactNode } from "react";
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
@@ -26,10 +25,9 @@ interface VerifyResponse {
 }
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-
   // Store only token in localStorage
   const [token, setToken] = useState<string | null>(() =>
-    localStorage.getItem("token")
+    localStorage.getItem("token"),
   );
 
   const [user, setUser] = useState<User | null>(null);
@@ -44,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       try {
         const res = await axios.post<VerifyResponse>(
           "http://127.0.0.1:3001/verify",
-          { token }
+          { token },
         );
 
         if (res.data.valid && res.data.user) {
@@ -84,6 +82,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth must be used inside AuthProvider");
+  if (!ctx) {
+    throw new Error("useAuth must be used inside AuthProvider");
+  }
   return ctx;
 }

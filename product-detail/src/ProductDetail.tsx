@@ -1,4 +1,3 @@
-
 type Product = {
   id: string;
   name: string;
@@ -18,7 +17,9 @@ export default function ProductDetail({ product }: Props) {
     return (
       <div className="p-3">
         <h2 className="text-black dark:text-background">🔍 Product Detail</h2>
-        <p className="text-black dark:text-background">Select a product to view details.</p>
+        <p className="text-black dark:text-background">
+          Select a product to view details.
+        </p>
       </div>
     );
   }
@@ -37,8 +38,12 @@ export default function ProductDetail({ product }: Props) {
           className="w-80 h-80 object-cover rounded"
         />
         <div className="flex-1">
-          <h3 className="text-black dark:text-background mt-0">{product.name}</h3>
-          <p className="text-textSecondary dark:text-background">{product.description}</p>
+          <h3 className="text-black dark:text-background mt-0">
+            {product.name}
+          </h3>
+          <p className="text-textSecondary dark:text-background">
+            {product.description}
+          </p>
 
           <div className="mt-4 flex gap-3 items-center">
             <div className="text-lg font-bold text-black dark:text-background">
@@ -54,12 +59,9 @@ export default function ProductDetail({ product }: Props) {
             </div>
           </div>
 
-          <div className="mt-5">
-            {/* Optional Button */}
-          </div>
+          <div className="mt-5">{/* Optional Button */}</div>
         </div>
       </div>
     </div>
   );
 }
-

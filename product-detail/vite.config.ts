@@ -8,14 +8,14 @@ export default defineConfig({
     federation({
       name: "productDetail",
       filename: "remoteEntry.js",
-      shared: ["react", "react-dom","react-router-dom","ui-library"],
+      shared: ["react", "react-dom", "react-router-dom", "ui-library"],
     }),
   ],
   build: {
     target: "esnext",
   },
   server: {
-    port: 3002, 
+    port: 3002,
   },
-  preview: { port: 3002 }
+  preview: { port: 3002 },
 });
