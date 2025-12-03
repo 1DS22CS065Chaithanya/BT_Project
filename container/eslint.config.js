@@ -1,26 +1,4 @@
-// import js from '@eslint/js'
-// import globals from 'globals'
-// import reactHooks from 'eslint-plugin-react-hooks'
-// import reactRefresh from 'eslint-plugin-react-refresh'
-// import tseslint from 'typescript-eslint'
-// import { globalIgnores } from 'eslint/config'
 
-// export default tseslint.config([
-//   globalIgnores(['dist']),
-//   {
-//     files: ['**/*.{ts,tsx}'],
-//     extends: [
-//       js.configs.recommended,
-//       tseslint.configs.recommended,
-//       reactHooks.configs['recommended-latest'],
-//       reactRefresh.configs.vite,
-//     ],
-//     languageOptions: {
-//       ecmaVersion: 2020,
-//       globals: globals.browser,
-//     },
-//   },
-// ])
 import js from "@eslint/js";
 import globals from "globals";
 import react from "eslint-plugin-react";
@@ -42,7 +20,7 @@ export default tseslint.config([
       parser: tseslint.parser,
     },
 
-    // ✅ REGISTER ALL PLUGINS EXPLICITLY
+    //  REGISTER ALL PLUGINS EXPLICITLY
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       react,
@@ -59,10 +37,10 @@ export default tseslint.config([
       ...reactRefresh.configs.vite.rules,
        "react-refresh/only-export-components": "off",
 
-      // ✅ Enable formatting through ESLint
+      //  Enable formatting through ESLint
       "prettier/prettier": "warn",
 
-      // ✅ AIRBNB-LIKE SAFETY RULES
+      //  AIRBNB-LIKE SAFETY RULES
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "@typescript-eslint/no-unused-vars": ["warn"],

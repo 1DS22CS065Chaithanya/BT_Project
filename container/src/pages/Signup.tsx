@@ -35,13 +35,6 @@ export default function Signup() {
     return "";
   }, [form.username, submitted]);
 
-  // const emailError = useMemo(() => {
-  //   if (!submitted) return "";
-  //   if (!form.email.trim()) return "Email is required";
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   if (!emailRegex.test(form.email.trim())) return "Enter a valid email address";
-  //   return "";
-  // }, [form.email, submitted]);
   const emailError = useMemo(() => {
     if (!submitted) {
       return "";
